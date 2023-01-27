@@ -30,7 +30,8 @@ namespace Xpense.Extension.Core
             var sqlServerConfiguration = serviceProvider.GetRequiredService<ISqlServerConfiguration>();
 
             /* Dependency Injection */
-            service.AddDbContext<XpenseDatabaseContext>(options => options.UseSqlServer(sqlServerConfiguration.ConnectionString));
+            service.AddDbContext<XpenseDatabaseContext>(options => options.UseSqlServer(
+                sqlServerConfiguration.ConnectionString, x => x.MigrationsAssembly(typeof(CoreServiceExtension).Assembly.GetName().Name)));
 
             service.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             service.AddScoped<IExpenseService, ExpenseService>();
