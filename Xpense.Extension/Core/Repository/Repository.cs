@@ -1,33 +1,37 @@
-﻿namespace Xpense.Extension.Core.Repository
+﻿using Xpense.Extension.Core.Database;
+
+namespace Xpense.Extension.Core.Repository
 {
     public class Repository<T> : IRepository<T>
     {
-        public Repository()
-        {
+        private readonly XpenseDatabaseContext _dbContext;
 
+        public Repository(XpenseDatabaseContext dbContext)
+        {
+            _dbContext = dbContext;
         }
 
-        public T Add(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T Delete(T entity)
+        public async ValueTask<T> Add(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public T Get()
+        public async ValueTask<T> Delete(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<T> List()
+        public async ValueTask<T> Get()
         {
             throw new NotImplementedException();
         }
 
-        public T Update(T entity)
+        public async ValueTask<List<T>> List()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async ValueTask<T> Update(T entity)
         {
             throw new NotImplementedException();
         }

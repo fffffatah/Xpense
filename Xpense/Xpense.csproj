@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Xpense.Extension\Xpense.Extension.csproj" />
+  </ItemGroup>
+
 </Project>

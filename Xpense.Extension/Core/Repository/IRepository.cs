@@ -1,11 +1,11 @@
 ﻿namespace Xpense.Extension.Core.Repository
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
-        T Add(T entity);
-        T Update(T entity);
-        T Delete(T entity);
-        T Get();
-        List<T> List();
+        ValueTask<T> Add(T entity);
+        ValueTask<T> Update(T entity);
+        ValueTask<T> Delete(T entity);
+        ValueTask<T> Get();
+        ValueTask<List<T>> List();
     }
 }
