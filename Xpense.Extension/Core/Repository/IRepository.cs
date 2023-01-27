@@ -1,11 +1,14 @@
-﻿namespace Xpense.Extension.Core.Repository
+﻿using System.Linq.Expressions;
+
+namespace Xpense.Extension.Core.Repository
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : class
     {
-        ValueTask<T> Add(T entity);
-        ValueTask<T> Update(T entity);
-        ValueTask<T> Delete(T entity);
-        ValueTask<T> Get();
-        ValueTask<List<T>> List();
+        ValueTask<T> AddAsync(T entity);
+        ValueTask<T> UpdateAsync(T entity);
+        ValueTask<T> DeleteAsync(T entity);
+        ValueTask<T> GetAsync(long id);
+        ValueTask<List<T>> GetAsync();
+        ValueTask<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
     }
 }

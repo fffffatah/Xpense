@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 using Xpense.Extension.Core.Database;
 using Xpense.Extension.Core.Repository;
 using Xpense.Extension.Core.Services;
@@ -30,7 +31,13 @@ namespace Xpense.Extension.Core
             var sqlServerConfiguration = serviceProvider.GetRequiredService<ISqlServerConfiguration>();
 
             /* Dependency Injection */
-            service.AddDbContext<XpenseDatabaseContext>(options => options.UseSqlServer(sqlServerConfiguration.ConnectionString));
+            service.AddDbContext<XpenseDatabaseContext>(options => options.UseSqlServer(
+                sqlServerConfiguration.ConnectionString, x => x.MigrationsAssembly(Assembly.GetEntryAssembly().GetName().Name)));
+
+            /* Create Database and Run Migrations On Start */
+            var databaseContext = service.BuildServiceProvider().GetRequiredService<XpenseDatabaseContext>();
+            databaseContext.Database.EnsureCreated();
+            databaseContext.Database.Migrate();
 
             service.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             service.AddScoped<IExpenseService, ExpenseService>();

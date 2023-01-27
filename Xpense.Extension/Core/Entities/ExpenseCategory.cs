@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Xpense.Extension.Core.Entities
+﻿namespace Xpense.Extension.Core.Entities
 {
     public class ExpenseCategory
     {
-        [Key]
-        public int Id { get; set; }
+        public ExpenseCategory()
+        {
+            Expenses = new HashSet<Expense>();
+        }
+        public long Id { get; set; }
         public string Name { get; set; }
+        public virtual ICollection<Expense> Expenses { get; set; }
     }
 }

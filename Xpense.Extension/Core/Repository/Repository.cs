@@ -1,8 +1,10 @@
-﻿using Xpense.Extension.Core.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using Xpense.Extension.Core.Database;
 
 namespace Xpense.Extension.Core.Repository
 {
-    public class Repository<T> : IRepository<T>
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly XpenseDatabaseContext _dbContext;
 
@@ -11,29 +13,61 @@ namespace Xpense.Extension.Core.Repository
             _dbContext = dbContext;
         }
 
-        public async ValueTask<T> Add(T entity)
+        public async ValueTask<T> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            var response = await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+
+            return response.Entity;
         }
 
-        public async ValueTask<T> Delete(T entity)
+        public async ValueTask<T> DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            var response = await Task.Run(() =>
+            {
+                return _dbContext.Set<T>().Remove(entity);
+            });
+
+            await _dbContext.SaveChangesAsync();
+
+            return response.Entity;
         }
 
-        public async ValueTask<T> Get()
+        public async ValueTask<T> GetAsync(long id)
         {
-            throw new NotImplementedException();
+            var response = await _dbContext.Set<T>().FindAsync(id);
+
+            return response;
         }
 
-        public async ValueTask<List<T>> List()
+        public async ValueTask<List<T>> GetAsync()
         {
-            throw new NotImplementedException();
+            var response = await _dbContext.Set<T>().ToListAsync();
+
+            return response;
         }
 
-        public async ValueTask<T> Update(T entity)
+        public async ValueTask<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            var response = await Task.Run(() =>
+            {
+                return _dbContext.Set<T>().Update(entity);
+            });
+
+            await _dbContext.SaveChangesAsync();
+
+            return response.Entity;
         }
+
+        public async ValueTask<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression)
+        {
+            var response = await Task.Run(() =>
+            {
+                return _dbContext.Set<T>().Where(expression);
+            });
+
+            return response;
+        }
+
     }
 }
