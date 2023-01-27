@@ -13,7 +13,7 @@ namespace Xpense.Extension.Core.Repository
             _dbContext = dbContext;
         }
 
-        public async ValueTask<T> Add(T entity)
+        public async ValueTask<T> AddAsync(T entity)
         {
             var response = await _dbContext.Set<T>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
@@ -21,7 +21,7 @@ namespace Xpense.Extension.Core.Repository
             return response.Entity;
         }
 
-        public async ValueTask<T> Delete(T entity)
+        public async ValueTask<T> DeleteAsync(T entity)
         {
             var response = await Task.Run(() =>
             {
@@ -33,21 +33,21 @@ namespace Xpense.Extension.Core.Repository
             return response.Entity;
         }
 
-        public async ValueTask<T> Get(long id)
+        public async ValueTask<T> GetAsync(long id)
         {
             var response = await _dbContext.Set<T>().FindAsync(id);
 
             return response;
         }
 
-        public async ValueTask<List<T>> List()
+        public async ValueTask<List<T>> GetAsync()
         {
             var response = await _dbContext.Set<T>().ToListAsync();
 
             return response;
         }
 
-        public async ValueTask<T> Update(T entity)
+        public async ValueTask<T> UpdateAsync(T entity)
         {
             var response = await Task.Run(() =>
             {
@@ -59,7 +59,7 @@ namespace Xpense.Extension.Core.Repository
             return response.Entity;
         }
 
-        public async ValueTask<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
+        public async ValueTask<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression)
         {
             var response = await Task.Run(() =>
             {

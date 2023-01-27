@@ -34,6 +34,7 @@ namespace Xpense.Extension.Core
             service.AddDbContext<XpenseDatabaseContext>(options => options.UseSqlServer(
                 sqlServerConfiguration.ConnectionString, x => x.MigrationsAssembly(Assembly.GetEntryAssembly().GetName().Name)));
 
+            /* Create Database and Run Migrations On Start */
             var databaseContext = service.BuildServiceProvider().GetRequiredService<XpenseDatabaseContext>();
             databaseContext.Database.EnsureCreated();
             databaseContext.Database.Migrate();

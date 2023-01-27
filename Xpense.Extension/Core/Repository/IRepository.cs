@@ -4,11 +4,11 @@ namespace Xpense.Extension.Core.Repository
 {
     public interface IRepository<T> where T : class
     {
-        ValueTask<T> Add(T entity);
-        ValueTask<T> Update(T entity);
-        ValueTask<T> Delete(T entity);
-        ValueTask<T> Get(long id);
-        ValueTask<List<T>> List();
-        ValueTask<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        ValueTask<T> AddAsync(T entity);
+        ValueTask<T> UpdateAsync(T entity);
+        ValueTask<T> DeleteAsync(T entity);
+        ValueTask<T> GetAsync(long id);
+        ValueTask<List<T>> GetAsync();
+        ValueTask<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
     }
 }

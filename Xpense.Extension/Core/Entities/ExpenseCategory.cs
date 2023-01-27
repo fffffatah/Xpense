@@ -6,7 +6,7 @@
         {
             Expenses = new HashSet<Expense>();
         }
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Expense> Expenses { get; set; }
     }
