@@ -5,49 +5,49 @@ namespace Xpense.Extension.Core.Services
 {
     public class ExpenseService : IExpenseService
     {
-        private readonly IRepository<Expense> _expenseService;
+        private readonly IRepository<Expense> _expenseRepository;
 
         public ExpenseService(IRepository<Expense> expenseService)
         {
-            _expenseService = expenseService;
+            _expenseRepository = expenseService;
         }
 
         public async ValueTask<List<Expense>> GetAsync()
         {
-            return await _expenseService.GetAsync();
+            return await _expenseRepository.GetAsync();
         }
 
         public async ValueTask<Expense> GetAsync(long id)
         {
-            return await _expenseService.GetAsync(id);
+            return await _expenseRepository.GetAsync(id);
         }
 
         public async ValueTask<List<Expense>> GetBetweenDates(DateTime startDate, DateTime endDate)
         {
-            var data = await _expenseService.FindAsync(x => x.SpentAt >= startDate && x.SpentAt <= endDate);
+            var data = await _expenseRepository.FindAsync(x => x.SpentAt >= startDate && x.SpentAt <= endDate);
 
             return data.ToList();
         }
 
         public async ValueTask<bool> DeleteAsync(long id)
         {
-            var expense = await _expenseService.GetAsync(id);
+            var expense = await _expenseRepository.GetAsync(id);
 
-            var data = await _expenseService.DeleteAsync(expense);
+            var data = await _expenseRepository.DeleteAsync(expense);
 
             return data != null;
         }
 
         public async ValueTask<bool> AddAsync(Expense expense)
         {
-            var data = await _expenseService.AddAsync(expense);
+            var data = await _expenseRepository.AddAsync(expense);
 
             return data != null;
         }
 
         public async ValueTask<bool> UpdateAsync(Expense expense)
         {
-            var data = await _expenseService.UpdateAsync(expense);
+            var data = await _expenseRepository.UpdateAsync(expense);
 
             return data != null;
         }

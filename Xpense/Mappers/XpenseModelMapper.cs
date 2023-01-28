@@ -8,9 +8,9 @@ namespace Xpense.Mappers
     {
         public XpenseModelMapper()
         {
-            CreateMap<Expense, ExpenseViewModel>()
-                .ForMember(dest => dest.Category, src => src.MapFrom(x => x.ExpenseCategory.Name));
+            CreateMap<Expense, ExpenseViewModel>();
             CreateMap<ExpenseAddModel, Expense>();
+            CreateMap<Expense, ExpenseEditModel>().ReverseMap();
 
             CreateMap<ExpenseCategory, ExpenseCategoryViewModel>();
             CreateMap<ExpenseCategoryAddModel, ExpenseCategory>();

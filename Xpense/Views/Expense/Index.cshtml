@@ -14,7 +14,8 @@
                         <th scope="col">Id</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Spent At</th>
-                        <th scope="col">Category</th>
+                        <th scope="col">Category Id</th>
+                        <th scope="col">Edit</th>
                         <th scope="col">Remove</th>
                     </tr>
                     @foreach (var expense in Model)
@@ -23,7 +24,8 @@
                             <td>@expense.Id</td>
                             <td>@expense.Amount</td>
                             <td>@expense.SpentAt</td>
-                            <td>@expense.Category</td>
+                            <td>@expense.ExpenseCategoryId</td>
+                            <td><a type="button" class="btn btn-outline-info" asp-area="" asp-controller="Expense" asp-action="Edit" asp-route-id="@expense.Id">Edit</a></td>
                             <td><a type="button" class="btn btn-outline-danger" asp-area="" asp-controller="Expense" asp-action="Delete" asp-route-id="@expense.Id">Delete</a></td>
                         </tr>
                     }

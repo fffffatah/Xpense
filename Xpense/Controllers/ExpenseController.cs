@@ -67,7 +67,56 @@ namespace Xpense.Controllers
 
             var expense = CustomMapper.Mapper.Map<Expense>(expenseAddModel);
 
+            expense.ExpenseCategory = await _expenseCategoryService.GetAsync(expenseAddModel.Category);
+
             await _expenseService.AddAsync(expense);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async ValueTask<IActionResult> Edit(long id)
+        {
+            var expense = await _expenseService.GetAsync(id);
+
+            var categories = await _expenseCategoryService.GetAsync();
+
+            ViewBag.ExpenseCategories = categories.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Name,
+                Selected = (expense.ExpenseCategory.Name == x.Name)
+            });
+
+            var expenseEditModelView = CustomMapper.Mapper.Map<ExpenseEditModel>(expense);
+
+            return View(expenseEditModelView);
+        }
+
+        [HttpPost]
+        public async ValueTask<IActionResult> Edit(ExpenseEditModel expenseEditModel)
+        {
+            var expense = await _expenseService.GetAsync(expenseEditModel.Id);
+
+            var categories = await _expenseCategoryService.GetAsync();
+
+            if (!ModelState.IsValid)
+            {
+                ViewBag.ExpenseCategories = categories.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Name,
+                    Selected = (expense.ExpenseCategory.Name == x.Name)
+                });
+
+                return View();
+            }
+
+            expense.Amount = expenseEditModel.Amount;
+            expense.SpentAt = expenseEditModel.SpentAt;
+            expense.ExpenseCategory = categories.Find(x => x.Name == expenseEditModel.Category);
+
+            await _expenseService.UpdateAsync(expense);
 
             return RedirectToAction("Index");
         }

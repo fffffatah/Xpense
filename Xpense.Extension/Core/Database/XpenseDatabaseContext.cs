@@ -14,14 +14,23 @@ namespace Xpense.Extension.Core.Database
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<ExpenseCategory>()
-                .HasIndex(e => e.Name)
-                .IsUnique(true);
+            builder.Entity<Expense>(e =>
+            {
+                e.HasOne(category => category.ExpenseCategory)
+                    .WithMany(expense => expense.Expenses)
+                    .HasForeignKey(category => category.ExpenseCategoryId)
+                    .HasConstraintName("expenseCategories_expenses_FK");
+            });
 
-            builder.Entity<ExpenseCategory>()
-                .HasMany(e => e.Expenses)
-                .WithOne(x => x.ExpenseCategory)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<ExpenseCategory>(e =>
+            {
+                e.HasIndex(e => e.Name)
+                    .IsUnique(true);
+
+                e.HasMany(e => e.Expenses)
+                    .WithOne(x => x.ExpenseCategory)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
         }
     }
 }
