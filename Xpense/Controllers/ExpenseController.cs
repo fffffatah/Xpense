@@ -43,7 +43,7 @@ namespace Xpense.Controllers
             ViewBag.ExpenseCategories = categories.Select(x => new SelectListItem
             {
                 Text = x.Name,
-                Value = x.Id.ToString()
+                Value = x.Name
             });
 
             return View();
@@ -59,7 +59,7 @@ namespace Xpense.Controllers
                 ViewBag.ExpenseCategories = categories.Select(x => new SelectListItem
                 {
                     Text = x.Name,
-                    Value = x.Id.ToString()
+                    Value = x.Name
                 });
 
                 return View();

@@ -26,7 +26,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="spentAt" class="form-label">Select Category</label>
-                                <select name="products" class="form-control" asp-items="@ViewBag.ExpenseCategories" asp-for="Category">
+                                <select name="category" class="form-control" asp-items="@ViewBag.ExpenseCategories" asp-for="Category">
+                                    <option value="NOSELECTEDVALUE">--Select Category--</option>
                                 </select>
                                 <span style="color:red;" asp-validation-for="Category"></span>
                             </div>
