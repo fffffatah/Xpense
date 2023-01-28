@@ -34,7 +34,7 @@
                             <tr>
                                 <td>@expense.Id</td>
                                 <td>@expense.Amount</td>
-                                <td>@expense.SpentAt.Date</td>
+                                <td>@expense.SpentAt.ToShortDateString()</td>
                                 <td>@expense.ExpenseCategoryId</td>
                                 <td><a type="button" class="btn btn-outline-info" asp-area="" asp-controller="Expense" asp-action="Edit" asp-route-id="@expense.Id">Edit</a></td>
                                 <td><a type="button" class="btn btn-outline-danger" asp-area="" asp-controller="Expense" asp-action="Delete" asp-route-id="@expense.Id">Delete</a></td>
