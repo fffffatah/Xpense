@@ -1,0 +1,41 @@
+﻿@model Xpense.Models.ExpenseAddModel;
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div>
+    <div class="container">
+        <div class="row" style="padding-top:40px">
+            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                <form asp-controller="Expense" asp-action="Add" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            Add New Expense
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="text" class="form-control" asp-for="Amount">
+                                <span style="color:red;" asp-validation-for="Amount"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="spentAt" class="form-label">Spent At</label>
+                                <input type="date" class="form-control" asp-for="SpentAt">
+                                <span style="color:red;" asp-validation-for="SpentAt"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="spentAt" class="form-label">Select Category</label>
+                                <select name="category" class="form-control" asp-items="@ViewBag.ExpenseCategories" asp-for="Category">
+                                    <option value="NOSELECTEDVALUE">--Select Category--</option>
+                                </select>
+                                <span style="color:red;" asp-validation-for="Category"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer"><button type="submit" class="btn btn-primary">Add</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,42 +5,49 @@ namespace Xpense.Extension.Core.Services
 {
     public class ExpenseCategoryService : IExpenseCategoryService
     {
-        private readonly IRepository<ExpenseCategory> _expenseCategoryService;
+        private readonly IRepository<ExpenseCategory> _expenseCategoryRepository;
 
         public ExpenseCategoryService(IRepository<ExpenseCategory> expenseCategoryService)
         {
-            _expenseCategoryService = expenseCategoryService;
+            _expenseCategoryRepository = expenseCategoryService;
         }
 
         public async ValueTask<List<ExpenseCategory>> GetAsync()
         {
-            return await _expenseCategoryService.GetAsync();
+            return await _expenseCategoryRepository.GetAsync();
         }
 
         public async ValueTask<ExpenseCategory> GetAsync(long id)
         {
-            return await _expenseCategoryService.GetAsync(id);
+            return await _expenseCategoryRepository.GetAsync(id);
+        }
+
+        public async ValueTask<ExpenseCategory> GetAsync(string name)
+        {
+            var data = await _expenseCategoryRepository.FindAsync(x => x.Name == name);
+
+            return data.FirstOrDefault();
         }
 
         public async ValueTask<bool> DeleteAsync(long id)
         {
-            var expenseCategory = await _expenseCategoryService.GetAsync(id);
+            var expenseCategory = await _expenseCategoryRepository.GetAsync(id);
 
-            var data = await _expenseCategoryService.DeleteAsync(expenseCategory);
+            var data = await _expenseCategoryRepository.DeleteAsync(expenseCategory);
 
             return data != null;
         }
 
         public async ValueTask<bool> AddAsync(ExpenseCategory expenseCategory)
         {
-            var data = await _expenseCategoryService.AddAsync(expenseCategory);
+            var data = await _expenseCategoryRepository.AddAsync(expenseCategory);
 
             return data != null;
         }
 
         public async ValueTask<bool> UpdateAsync(ExpenseCategory expenseCategory)
         {
-            var data = await _expenseCategoryService.UpdateAsync(expenseCategory);
+            var data = await _expenseCategoryRepository.UpdateAsync(expenseCategory);
 
             return data != null;
         }

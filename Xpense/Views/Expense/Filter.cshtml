@@ -1,0 +1,50 @@
+﻿@model List<Xpense.Models.ExpenseFilterViewModel>;
+
+@{
+    ViewData["Title"] = "Expenses Filter";
+}
+
+<form asp-controller="Expense" asp-action="Filter" method="post">
+    <div style="padding-top:20px;">
+        <div class="card border-info mb3">
+            <div class="card-header">
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" name="startDate">
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" name="endDate">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Spent At</th>
+                            <th scope="col">Category Id</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                        @foreach (var expense in Model)
+                        {
+                            <tr>
+                                <td>@expense.Id</td>
+                                <td>@expense.Amount</td>
+                                <td>@expense.SpentAt.Date</td>
+                                <td>@expense.ExpenseCategoryId</td>
+                                <td><a type="button" class="btn btn-outline-info" asp-area="" asp-controller="Expense" asp-action="Edit" asp-route-id="@expense.Id">Edit</a></td>
+                                <td><a type="button" class="btn btn-outline-danger" asp-area="" asp-controller="Expense" asp-action="Delete" asp-route-id="@expense.Id">Delete</a></td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</form>

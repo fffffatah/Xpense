@@ -1,0 +1,39 @@
+﻿@model List<Xpense.Models.ExpenseViewModel>;
+
+@{
+    ViewData["Title"] = "Expenses";
+}
+
+<div style="padding-top:20px;">
+    <div class="card border-info mb3">
+        <div class="card-header">My Expenses</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Spent At</th>
+                        <th scope="col">Category Id</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                    @foreach (var expense in Model)
+                    {
+                        <tr>
+                            <td>@expense.Id</td>
+                            <td>@expense.Amount</td>
+                            <td>@expense.SpentAt.Date</td>
+                            <td>@expense.ExpenseCategoryId</td>
+                            <td><a type="button" class="btn btn-outline-info" asp-area="" asp-controller="Expense" asp-action="Edit" asp-route-id="@expense.Id">Edit</a></td>
+                            <td><a type="button" class="btn btn-outline-danger" asp-area="" asp-controller="Expense" asp-action="Delete" asp-route-id="@expense.Id">Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a type="button" class="btn btn-primary" asp-area="" asp-controller="Expense" asp-action="Add">Add New</a>
+        </div>
+    </div>
+</div>
