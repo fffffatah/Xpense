@@ -122,6 +122,29 @@ namespace Xpense.Controllers
         }
 
         [HttpGet]
+        public async ValueTask<IActionResult> Filter()
+        {
+            var expenses = await _expenseService.GetAsync();
+
+            var expensesView = CustomMapper.Mapper.Map<List<ExpenseFilterViewModel>>(expenses);
+
+            return View(expensesView);
+        }
+
+        [HttpPost]
+        public async ValueTask<IActionResult> Filter(DateTime startDate, DateTime endDate)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var expenses = await _expenseService.GetBetweenDates(startDate, endDate);
+
+            var expensesView = CustomMapper.Mapper.Map<List<ExpenseFilterViewModel>>(expenses);
+
+            return View(expensesView);
+        }
+
+        [HttpGet]
         public async ValueTask<IActionResult> Delete(long id)
         {
             await _expenseService.DeleteAsync(id);

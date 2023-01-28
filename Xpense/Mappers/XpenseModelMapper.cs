@@ -11,6 +11,7 @@ namespace Xpense.Mappers
             CreateMap<Expense, ExpenseViewModel>();
             CreateMap<ExpenseAddModel, Expense>();
             CreateMap<Expense, ExpenseEditModel>().ReverseMap();
+            CreateMap<Expense, ExpenseFilterViewModel>();
 
             CreateMap<ExpenseCategory, ExpenseCategoryViewModel>();
             CreateMap<ExpenseCategoryAddModel, ExpenseCategory>();

@@ -14,6 +14,7 @@ namespace Xpense.Extension.Core.Database
         {
             base.OnModelCreating(builder);
 
+            /* Add database constraints to Expense and ExpenseCategory tables */
             builder.Entity<Expense>(e =>
             {
                 e.HasOne(category => category.ExpenseCategory)
