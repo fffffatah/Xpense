@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpense", "Xpense\Xpense.csproj", "{A192A46C-9811-4CF2-98D6-E76343A8B76C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xpense", "Xpense\Xpense.csproj", "{A192A46C-9811-4CF2-98D6-E76343A8B76C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpense.Extension", "Xpense.Extension\Xpense.Extension.csproj", "{95BFC8A7-8205-49B3-BEF6-132B96F015D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xpense.Extension", "Xpense.Extension\Xpense.Extension.csproj", "{95BFC8A7-8205-49B3-BEF6-132B96F015D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

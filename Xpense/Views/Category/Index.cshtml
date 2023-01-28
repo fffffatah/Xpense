@@ -1,0 +1,33 @@
+﻿@model List<Xpense.Models.ExpenseCategoryViewModel>;
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div style="padding-top:20px;">
+    <div class="card border-info mb3">
+        <div class="card-header">My Categories</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td>@category.Id</td>
+                            <td>@category.Name</td>
+                            <td><a type="button" class="btn btn-outline-info" asp-area="" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id">Edit</a></td>
+                            <td><a type="button" class="btn btn-outline-danger" asp-area="" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id">Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div class="card-footer"><a type="button" class="btn btn-primary" asp-area="" asp-controller="Category" asp-action="Add">Add New</a></div>
+    </div>
+</div>

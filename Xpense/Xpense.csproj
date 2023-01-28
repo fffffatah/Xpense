@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Xpense.Extension\Xpense.Extension.csproj" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13"/>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13" />
   </ItemGroup>
 
 </Project>
