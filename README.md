@@ -1,5 +1,5 @@
 # Xpense
-Xpense is a expense tracker web application for a single user to showcase my skill in `.NET 6`, `ASP.NET Core MVC`, `Entity Framework Core`, `Repository Pattern`, `MS SQL Server`, `Bootstrap 5`, `Code Re-use`, `Dependency Injection` and other advance topics in OOP and C#.
+Xpense is an expense tracker web application for a single user to showcase my skill in `.NET 6`, `ASP.NET Core MVC`, `Entity Framework Core`, `Repository Pattern`, `MS SQL Server`, `Bootstrap 5`, `Code Re-use`, `Dependency Injection` and other advance topics in OOP and C#.
 
 # Assumptions
 - As the requirement doesn't mention the system having multiple users, Authentication and Authorization has been left out intentionally.
