@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xpense", "Xpense\Xpense.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xpense.Extension", "Xpense.Extension\Xpense.Extension.csproj", "{95BFC8A7-8205-49B3-BEF6-132B96F015D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpense.Api", "Xpense.Api\Xpense.Api.csproj", "{93F45022-717E-46C9-B18A-2E6A5520A5C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xpense.Api.Specs", "Xpense.Api.Specs\Xpense.Api.Specs.csproj", "{8A203E48-66D3-4716-B056-C07461603771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{95BFC8A7-8205-49B3-BEF6-132B96F015D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95BFC8A7-8205-49B3-BEF6-132B96F015D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95BFC8A7-8205-49B3-BEF6-132B96F015D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F45022-717E-46C9-B18A-2E6A5520A5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F45022-717E-46C9-B18A-2E6A5520A5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F45022-717E-46C9-B18A-2E6A5520A5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F45022-717E-46C9-B18A-2E6A5520A5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A203E48-66D3-4716-B056-C07461603771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A203E48-66D3-4716-B056-C07461603771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A203E48-66D3-4716-B056-C07461603771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A203E48-66D3-4716-B056-C07461603771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
