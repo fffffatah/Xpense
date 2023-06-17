@@ -29,18 +29,19 @@ public class CategoryController : ControllerBase
     {
         if (!ValidationHelper.ValidateCategory(expenseCategoryAddModel.Name))
             return BadRequest();
-        
+
         var expenseCategory = XpenseModelMapper.CustomMapper.Mapper.Map<ExpenseCategory>(expenseCategoryAddModel);
+        ExpenseCategory responseExpenseCategory;
 
         try
         {
-            await _expenseCategoryService.AddAsync(expenseCategory);
+            responseExpenseCategory = await _expenseCategoryService.AddAsync(expenseCategory);
         }
         catch (Exception ex)
         {
             return BadRequest();
         }
 
-        return Ok();
+        return Ok(responseExpenseCategory);
     }
 }

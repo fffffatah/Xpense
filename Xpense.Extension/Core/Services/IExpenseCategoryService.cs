@@ -8,7 +8,7 @@ namespace Xpense.Extension.Core.Services
         ValueTask<ExpenseCategory> GetAsync(long id);
         ValueTask<bool> DeleteAsync(long id);
         ValueTask<ExpenseCategory> GetAsync(string name);
-        ValueTask<bool> AddAsync(ExpenseCategory expenseCategory);
+        ValueTask<ExpenseCategory> AddAsync(ExpenseCategory expenseCategory);
         ValueTask<bool> UpdateAsync(ExpenseCategory expenseCategory);
     }
 }

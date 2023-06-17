@@ -33,6 +33,16 @@ namespace Xpense.Extension.Core.Repository
             return response.Entity;
         }
 
+        public async ValueTask DeleteRangeAsync(List<T> entities)
+        {
+            await Task.Run(() =>
+            {
+                _dbContext.Set<T>().RemoveRange(entities);
+            });
+
+            await _dbContext.SaveChangesAsync();
+        }
+        
         public async ValueTask<T> GetAsync(long id)
         {
             var response = await _dbContext.Set<T>().FindAsync(id);

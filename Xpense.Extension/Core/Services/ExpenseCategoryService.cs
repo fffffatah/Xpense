@@ -38,11 +38,11 @@ namespace Xpense.Extension.Core.Services
             return data != null;
         }
 
-        public async ValueTask<bool> AddAsync(ExpenseCategory expenseCategory)
+        public async ValueTask<ExpenseCategory> AddAsync(ExpenseCategory expenseCategory)
         {
             var data = await _expenseCategoryRepository.AddAsync(expenseCategory);
 
-            return data != null;
+            return data;
         }
 
         public async ValueTask<bool> UpdateAsync(ExpenseCategory expenseCategory)
