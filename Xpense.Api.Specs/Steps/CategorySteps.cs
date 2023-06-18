@@ -18,19 +18,14 @@ namespace Xpense.Api.Specs.Steps;
 public sealed class CategorySteps
 {
     // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
-
     private readonly ScenarioContext _scenarioContext;
     private HttpClient _httpClient;
     private HttpResponseMessage _response;
     private ExpenseCategoryAddModel _expenseCategoryAddModel;
-    private readonly IRepository<ExpenseCategory> _repository;
-    private readonly Hooks<ExpenseCategory> _hooks;
 
-    public CategorySteps(ScenarioContext scenarioContext, IRepository<ExpenseCategory> repository)
+    public CategorySteps(ScenarioContext scenarioContext)
     {
         _scenarioContext = scenarioContext;
-        _repository = repository;
-        _hooks = new Hooks<ExpenseCategory>(_repository);
     }
 
     [Given("an expense category request with name \"(.*)\"")]
@@ -58,8 +53,6 @@ public sealed class CategorySteps
         if (responseBody == "")
         {
             ExpenseCategory expenseCategory = JsonConvert.DeserializeObject<ExpenseCategory>(responseBody);
-        
-            _hooks.TrackEntity(expenseCategory);
         }
     }
 

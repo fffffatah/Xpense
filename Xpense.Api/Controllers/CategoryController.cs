@@ -31,17 +31,56 @@ public class CategoryController : ControllerBase
             return BadRequest();
 
         var expenseCategory = XpenseModelMapper.CustomMapper.Mapper.Map<ExpenseCategory>(expenseCategoryAddModel);
-        ExpenseCategory responseExpenseCategory;
-
+        
         try
         {
-            responseExpenseCategory = await _expenseCategoryService.AddAsync(expenseCategory);
+            var responseExpenseCategory = await _expenseCategoryService.AddAsync(expenseCategory);
+            
+            return Ok(responseExpenseCategory);
         }
         catch (Exception ex)
         {
             return BadRequest();
         }
+    }
 
-        return Ok(responseExpenseCategory);
+    [Route("get/category")]
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var expenseCategories = await _expenseCategoryService.GetAsync();
+
+        var categories = XpenseModelMapper.CustomMapper.Mapper.Map<List<ExpenseCategoryViewModel>>(expenseCategories);
+
+        return Ok(categories);
+    }
+    
+    [Route("get/category/{id}")]
+    [HttpGet]
+    public async Task<IActionResult> Get(int id)
+    {
+        try
+        {
+            var expenseCategories = await _expenseCategoryService.GetAsync(id);
+            var categories = XpenseModelMapper.CustomMapper.Mapper.Map<ExpenseCategoryViewModel>(expenseCategories);
+            
+            return Ok(categories);
+        }
+        catch (Exception e)
+        {
+            return BadRequest();
+        }
+    }
+    
+    [Route("delete/category/{id}")]
+    [HttpDelete]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var isDeleted = await _expenseCategoryService.DeleteAsync(id);
+
+        if (isDeleted)
+            return Ok();
+
+        return BadRequest();
     }
 }

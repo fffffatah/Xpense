@@ -4,7 +4,7 @@ using Xpense.Extension.Core;
 var builder = WebApplication.CreateBuilder(args);
 /* Add configurations, add all from environment variables and optionally from 'appsettings.json' file */
 builder.Configuration.AddEnvironmentVariables();
-builder.Configuration.AddJsonFile("appsettings.json", optional: true);
+builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true);
 // Add services to the container.
 builder.Services.AddCoreServices(DatabaseHelper.GetConnectionString(builder));
 builder.Services.AddControllers();
