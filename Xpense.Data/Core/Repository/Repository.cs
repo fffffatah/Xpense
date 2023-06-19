@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Xpense.Extension.Core.Database;
+using Xpense.Data.Core.Database;
 
-namespace Xpense.Extension.Core.Repository
+namespace Xpense.Data.Core.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {

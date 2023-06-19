@@ -1,10 +1,10 @@
 # Xpense
-Xpense is an expense tracker web application for a single user to showcase my skill in `.NET 6`, `ASP.NET Core MVC`, `Entity Framework Core`, `Repository Pattern`, `MS SQL Server`, `Bootstrap 5`, `Code Re-use`, `Dependency Injection` and other advance topics in OOP and C#.
+Xpense is a simple expense tracker web application for experimenting with .NET.
 
-# Assumptions
-- As the requirement doesn't mention the system having multiple users, Authentication and Authorization has been left out intentionally.
-- The project doesn't contain any Javascript as it was solely made for showcasing `C#`, `Razor Page` skills.
-- Less focus was put on UI and more focus was put on code organization, proper use of design patterns and code re-use.
+# Purpose
+- To learn and experiment with testing (SpecFlow).
+- To learn experiment with Unit of Work pattern (To-Do).
+- To learn and experiment with caching in .NET (To-Do).
 
 # Getting Started
 The project targets `.NET 6` and is `ASP.NET Core MVC` project. The application uses `MS SQL Server 2019` as database. Therefore, make sure you have the system ready before running the application. Also, separate SQL script isn't required as the database and required tables will be created on first run. Additionally, make sure you have the proper connection string set for database in `appsettings.json` or Environment Variable under `SQL_SERVER_CONNECTION`.

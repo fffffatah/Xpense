@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Xpense.Extension.Core.Repository
+namespace Xpense.Data.Core.Repository
 {
     public interface IRepository<T> where T : class
     {

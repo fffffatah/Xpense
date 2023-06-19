@@ -1,4 +1,4 @@
-using Xpense.Extension.Core;
+using Xpense.Data.Core;
 using Xpense.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);

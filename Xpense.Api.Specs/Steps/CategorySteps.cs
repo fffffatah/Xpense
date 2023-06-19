@@ -8,9 +8,9 @@ using FluentAssertions;
 using Newtonsoft.Json;
 using Xpense.Api.Models;
 using Xpense.Api.Specs.Hooks;
-using Xpense.Extension.Core.Database;
-using Xpense.Extension.Core.Entities;
-using Xpense.Extension.Core.Repository;
+using Xpense.Data.Core.Database;
+using Xpense.Data.Core.Entities;
+using Xpense.Data.Core.Repository;
 
 namespace Xpense.Api.Specs.Steps;
 

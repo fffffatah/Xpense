@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Xpense.Extension.Core.Entities;
+using Xpense.Data.Core.Entities;
 using Xpense.Api.Models;
 
 namespace Xpense.Api.Mappers

@@ -1,5 +1,5 @@
 using Xpense.Api.Helpers;
-using Xpense.Extension.Core;
+using Xpense.Data.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 /* Add configurations, add all from environment variables and optionally from 'appsettings.json' file */

@@ -5,8 +5,8 @@ using Microsoft.Data.SqlClient;
 using Xpense.Api.Helpers;
 using Xpense.Api.Mappers;
 using Xpense.Api.Models;
-using Xpense.Extension.Core.Entities;
-using Xpense.Extension.Core.Services;
+using Xpense.Data.Core.Entities;
+using Xpense.Data.Core.Services;
 
 namespace Xpense.Api.Controllers;
 

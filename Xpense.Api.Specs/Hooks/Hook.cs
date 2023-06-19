@@ -1,7 +1,7 @@
 using System;
 using TechTalk.SpecFlow;
-using Xpense.Extension.Core.Database;
-using Xpense.Extension.Core.Repository;
+using Xpense.Data.Core.Database;
+using Xpense.Data.Core.Repository;
 
 namespace Xpense.Api.Specs.Hooks
 {

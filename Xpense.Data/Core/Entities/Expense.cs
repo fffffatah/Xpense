@@ -1,4 +1,4 @@
-﻿namespace Xpense.Extension.Core.Entities
+﻿namespace Xpense.Data.Core.Entities
 {
     public class Expense
     {

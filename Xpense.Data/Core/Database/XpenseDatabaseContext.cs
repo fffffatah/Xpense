@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Xpense.Extension.Core.Entities;
+using Xpense.Data.Core.Entities;
 
-namespace Xpense.Extension.Core.Database
+namespace Xpense.Data.Core.Database
 {
     public class XpenseDatabaseContext : DbContext
     {

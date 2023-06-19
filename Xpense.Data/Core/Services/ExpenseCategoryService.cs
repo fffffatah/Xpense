@@ -1,7 +1,7 @@
-﻿using Xpense.Extension.Core.Entities;
-using Xpense.Extension.Core.Repository;
+﻿using Xpense.Data.Core.Entities;
+using Xpense.Data.Core.Repository;
 
-namespace Xpense.Extension.Core.Services
+namespace Xpense.Data.Core.Services
 {
     public class ExpenseCategoryService : IExpenseCategoryService
     {

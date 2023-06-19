@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
-using Xpense.Extension.Core.Entities;
-using Xpense.Extension.Core.Services;
+using Xpense.Data.Core.Entities;
+using Xpense.Data.Core.Services;
 using Xpense.Models;
 using static Xpense.Mappers.XpenseModelMapper;
 

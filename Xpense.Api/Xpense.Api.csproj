@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Xpense.Extension\Xpense.Extension.csproj" />
+      <ProjectReference Include="..\Xpense.Data\Xpense.Data.csproj" />
     </ItemGroup>
 
 </Project>

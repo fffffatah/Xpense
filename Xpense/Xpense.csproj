@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Xpense.Extension\Xpense.Extension.csproj" />
+    <ProjectReference Include="..\Xpense.Data\Xpense.Data.csproj" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13" />
   </ItemGroup>
 

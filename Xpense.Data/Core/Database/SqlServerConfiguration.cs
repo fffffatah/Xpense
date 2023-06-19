@@ -1,4 +1,4 @@
-﻿namespace Xpense.Extension.Core.Database
+﻿namespace Xpense.Data.Core.Database
 {
     public class SqlServerConfiguration : ISqlServerConfiguration
     {

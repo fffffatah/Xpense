@@ -1,6 +1,6 @@
-﻿using Xpense.Extension.Core.Entities;
+﻿using Xpense.Data.Core.Entities;
 
-namespace Xpense.Extension.Core.Services
+namespace Xpense.Data.Core.Services
 {
     public interface IExpenseService
     {

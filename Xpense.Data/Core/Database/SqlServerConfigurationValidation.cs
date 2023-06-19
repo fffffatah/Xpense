@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 
-namespace Xpense.Extension.Core.Database
+namespace Xpense.Data.Core.Database
 {
     public class SqlServerConfigurationValidation : IValidateOptions<SqlServerConfiguration>
     {

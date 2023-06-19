@@ -2,11 +2,11 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Reflection;
-using Xpense.Extension.Core.Database;
-using Xpense.Extension.Core.Repository;
-using Xpense.Extension.Core.Services;
+using Xpense.Data.Core.Database;
+using Xpense.Data.Core.Repository;
+using Xpense.Data.Core.Services;
 
-namespace Xpense.Extension.Core
+namespace Xpense.Data.Core
 {
     public static class CoreServiceExtension
     {
