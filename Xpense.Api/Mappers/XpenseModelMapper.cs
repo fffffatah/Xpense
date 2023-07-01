@@ -11,6 +11,11 @@ namespace Xpense.Api.Mappers
             CreateMap<ExpenseCategory, ExpenseCategoryViewModel>();
             CreateMap<ExpenseCategoryAddModel, ExpenseCategory>();
             CreateMap<ExpenseCategoryEditModel, ExpenseCategory>().ReverseMap();
+            
+            CreateMap<Expense, ExpenseViewModel>();
+            CreateMap<Expense, ExpenseEditModel>().ReverseMap();
+            CreateMap<Expense, ExpenseFilterViewModel>();
+            CreateMap<ExpenseAddModel, Expense>();
         }
 
         public static class CustomMapper

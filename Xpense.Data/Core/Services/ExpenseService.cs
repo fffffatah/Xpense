@@ -38,18 +38,18 @@ namespace Xpense.Data.Core.Services
             return data != null;
         }
 
-        public async ValueTask<bool> AddAsync(Expense expense)
+        public async ValueTask<Expense> AddAsync(Expense expense)
         {
             var data = await _expenseRepository.AddAsync(expense);
 
-            return data != null;
+            return data;
         }
 
-        public async ValueTask<bool> UpdateAsync(Expense expense)
+        public async ValueTask<Expense> UpdateAsync(Expense expense)
         {
             var data = await _expenseRepository.UpdateAsync(expense);
 
-            return data != null;
+            return data;
         }
     }
 }

@@ -40,7 +40,30 @@ public class CategoryController : ControllerBase
         }
         catch (Exception ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [Route("edit/category")]
+    [HttpPut]
+    public async Task<IActionResult> Edit([FromForm] ExpenseCategoryEditModel expenseCategoryEditModel)
+    {
+        try
+        {
+            if (!ValidationHelper.ValidateCategory(expenseCategoryEditModel.Name))
+                return BadRequest();
+        
+            var category = await _expenseCategoryService.GetAsync(expenseCategoryEditModel.Id);
+
+            category.Name = expenseCategoryEditModel.Name;
+
+            var responseCategory = await _expenseCategoryService.UpdateAsync(category);
+
+            return Ok(responseCategory);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
         }
     }
 
@@ -66,9 +89,9 @@ public class CategoryController : ControllerBase
             
             return Ok(categories);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            return BadRequest();
+            return BadRequest(ex.Message);
         }
     }
     

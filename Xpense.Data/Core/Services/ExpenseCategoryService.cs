@@ -45,11 +45,11 @@ namespace Xpense.Data.Core.Services
             return data;
         }
 
-        public async ValueTask<bool> UpdateAsync(ExpenseCategory expenseCategory)
+        public async ValueTask<ExpenseCategory> UpdateAsync(ExpenseCategory expenseCategory)
         {
             var data = await _expenseCategoryRepository.UpdateAsync(expenseCategory);
 
-            return data != null;
+            return data;
         }
     }
 }
