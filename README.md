@@ -2,9 +2,10 @@
 Xpense is a simple expense tracker web application for experimenting with .NET.
 
 # Purpose
-- To learn and experiment with testing (SpecFlow).
-- To learn experiment with Unit of Work pattern (To-Do).
-- To learn and experiment with caching in .NET (To-Do).
+To learn and experiment with,
+- testing (SpecFlow).
+- Unit of Work pattern (To-Do).
+- caching in .NET (To-Do).
 
 # Getting Started
 The project targets `.NET 6` and is `ASP.NET Core MVC` project. The application uses `MS SQL Server 2019` as database. Therefore, make sure you have the system ready before running the application. Also, separate SQL script isn't required as the database and required tables will be created on first run. Additionally, make sure you have the proper connection string set for database in `appsettings.json` or Environment Variable under `SQL_SERVER_CONNECTION`.
