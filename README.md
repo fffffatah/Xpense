@@ -3,7 +3,7 @@ Xpense is a simple expense tracker web application for experimenting with .NET.
 
 # Purpose
 To learn and experiment with,
-- testing (SpecFlow).
+- testing, SpecFlow (In-Progress).
 - Unit of Work pattern (To-Do).
 - caching in .NET (To-Do).
 
