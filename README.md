@@ -1,3 +1,4 @@
+[![Build and Test](https://github.com/fffffatah/Xpense/actions/workflows/dotnet.yml/badge.svg)](https://github.com/fffffatah/Xpense/actions/workflows/dotnet.yml)
 # Xpense
 Xpense is a simple expense tracker web application for experimenting with .NET.
 
