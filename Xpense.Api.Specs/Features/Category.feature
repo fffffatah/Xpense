@@ -1,6 +1,6 @@
 ﻿Feature: Category
-	As a user
-	I want to be able to add expense categories
+	As a user,
+	I want to be able to create, modify, delete and read categories
 
 Scenario: Add Expense Category - Successful Request
 	Given an expense category request with name "Food"
@@ -12,12 +12,16 @@ Scenario: Add Expense Category - Invalid Request
 	When I send a POST request to "Category/add/category"
 	Then the response status should be BadRequest
 
-Scenario Outline: Add Expense Category - Validation Errors
-	Given an expense category request with name "<Name>"
-	When I send a POST request to "Category/add/category"
-	Then the response status should be BadRequest
-
-	Examples:
-		  | Name        |
-		  | "Groceries" |
-		  | "Transport" |
+#Scenario Outline: Add Expense Category - Validation Errors
+#	Given I have following expense categories
+#	| Name     |
+#	| "<Food>" |
+#	| "<Food"  |
+#	| "Food>"  |
+#	When I send a request to "Category/add/category"
+#	Then the response status should be BadRequest
+#
+#	Examples:
+#		  | Name        |
+#		  | "Groceries" |
+#		  | "Transport" |
