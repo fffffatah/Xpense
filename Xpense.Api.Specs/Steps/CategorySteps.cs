@@ -21,7 +21,6 @@ public sealed class CategorySteps
     // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
     private readonly TestContext _testContext;
     private readonly ScenarioContext _scenarioContext;
-    private HttpClient _httpClient;
     private HttpResponseMessage _response;
     private ExpenseCategoryAddModel _expenseCategoryAddModel;
 
@@ -51,6 +50,7 @@ public sealed class CategorySteps
         formData.Add(new StringContent(_expenseCategoryAddModel.Name), "Name");
 
         _response = await _testContext.HttpClient.PostAsync(absUrl, formData);
+        Console.WriteLine(_response.Content);
     }
 
     [Then("the response status should be (.*)")]
